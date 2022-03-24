@@ -12,6 +12,6 @@ struct LinearList
 void init(LinearList& linearList);
 bool isEmpty(int numbOfItems);
 bool isFull(int numbOfItems);
-void search(int data);
+int search(int* list, int data);
 void addItem(int* list, int data, int currentData, int& numbOfItems);
 void deleteItem(int* list, int currentData, int& numbOfItems);
