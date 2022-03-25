@@ -32,7 +32,7 @@ void addItem(int* list, int data, int index, int beforeOrAfter, int& numbOfItems
 	{
 		case(Before):
 		{
-			for (int i = numbOfItems - 1; i > index; i--)
+			for (int i = numbOfItems - 1; i >= index; i--)
 			{
 				list[i + 1] = list[i];
 			}
@@ -42,7 +42,7 @@ void addItem(int* list, int data, int index, int beforeOrAfter, int& numbOfItems
 		}
 		case(After):
 		{
-			for (int i = numbOfItems - 1; i > index + 1; i--)
+			for (int i = numbOfItems - 1; i >= index + 1; i--)
 			{
 				list[i + 1] = list[i];
 			}
@@ -65,7 +65,7 @@ int deleteItem(int* list, int currentData, int& numbOfItems)
 		{
 			int deletedItem = list[index];
 			list[index] = NULL;
-			for (int i = index; i < numbOfItems - 1; i++)
+			for (int i = index; i <= numbOfItems - 1; i++)
 			{
 				list[i + 1] = list[i];
 			}

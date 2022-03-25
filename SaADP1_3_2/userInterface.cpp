@@ -154,17 +154,15 @@ void caseDeleteItem(int* list, int& numbOfItems)
 	{
 		std::cout << "   Nothing to delete." << std::endl; //Это надо будет вставить в UserInterface
 	}
-	std::cout << "   Enter the element instead of/to the right of which you are going to add the element." << std::endl;
+	std::cout << "   Enter the item to delete." << std::endl;
 	int currentData = userInput(EnterItem);
 	bool check = true;
 	int index = search(list, currentData, check);
 	if (check)
 	{
-		std::cout << "   Enter the item to delete." << std::endl;
-		int data = userInput(EnterItem);
 		int deletedItem = deleteItem(list, currentData, numbOfItems);
 		std::cout << std::endl;
-		std::cout << "   Item added." << std::endl;
+		std::cout << "   Item deleted." << std::endl;
 		std::cout << std::endl;
 	}
 	else
