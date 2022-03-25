@@ -26,57 +26,36 @@ void addItemIsEmpty(int* list, int data, int& numbOfItems)
 	list[0] = data;
 	numbOfItems++;
 }
-void addItem(int* list, int data, int currentData, int beforeOrAfter, int& numbOfItems)
+void addItem(int* list, int data, int index, int beforeOrAfter, int& numbOfItems)
 {
-	if (isFull(numbOfItems))
+	switch (beforeOrAfter)
 	{
-		std::cout << "   The list is full." << std::endl;
-	}
-	else
-	{
-		bool check = true;
-		int index = search(list, currentData, check);
-		if (check)
+		case(Before):
 		{
-			switch (beforeOrAfter)
+			for (int i = numbOfItems - 1; i > index; i--)
 			{
-				case(Before):
-				{
-					for (int i = numbOfItems - 1; i > index; i--)
-					{
-						list[i + 1] = list[i];
-					}
-					list[index] = data;
-					numbOfItems++;
-					break;
-				}
-				case(After):
-				{
-					for (int i = numbOfItems - 1; i > index + 1; i--)
-					{
-						list[i + 1] = list[i];
-					}
-					list[index + 1] = data;
-					numbOfItems++;
-					break;
-				}
-				default:
-					break;
-				}
+				list[i + 1] = list[i];
+			}
+			list[index] = data;
+			numbOfItems++;
+			break;
 		}
-		else
+		case(After):
 		{
-			std::cout << "   There is no such element." << std::endl;
+			for (int i = numbOfItems - 1; i > index + 1; i--)
+			{
+				list[i + 1] = list[i];
+			}
+			list[index + 1] = data;
+			numbOfItems++;
+			break;
 		}
+		default:
+			break;
 	}
 }
-void deleteItem(int* list, int currentData, int& numbOfItems)
+int deleteItem(int* list, int currentData, int& numbOfItems)
 {
-	//if (isEmpty(numbOfItems))
-	//{
-	//	std::cout << "   Nothing to delete." << std::endl; //Это надо будет вставить в UserInterface
-	//}
-	
 	bool check = true;
 	int index = search(list, currentData, check);
 	if (check)
@@ -84,12 +63,14 @@ void deleteItem(int* list, int currentData, int& numbOfItems)
 		if (index == numbOfItems - 1) { list[index] = NULL; numbOfItems--; }
 		else
 		{
+			int deletedItem = list[index];
 			list[index] = NULL;
 			for (int i = index; i < numbOfItems - 1; i++)
 			{
 				list[i + 1] = list[i];
 			}
 			numbOfItems--;
+			return deletedItem;
 		}
 	}
 	else
@@ -97,4 +78,17 @@ void deleteItem(int* list, int currentData, int& numbOfItems)
 		std::cout << "   There is no such element." << std::endl;
 	}
 	
+}
+void printList(int* list, int numbOfItems)
+{
+	/*for (int i = 0; i < numbOfItems; i++)
+	{
+		std::cout << "   " << list[i] << std::endl;
+	}
+	std::cout << std::endl;*/
+	for (int i = 0; i < ArraySize; i++)
+	{
+		std::cout << "   " << list[i] << std::endl;
+	}
+	std::cout << std::endl;
 }

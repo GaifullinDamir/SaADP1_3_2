@@ -21,9 +21,15 @@
     <ClCompile Include="linearList.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="userInterface.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="linearList.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="userInterface.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

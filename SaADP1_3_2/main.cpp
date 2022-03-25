@@ -1,7 +1,11 @@
 ﻿#include <iostream>
+#include "userInterface.h"
+#include "linearList.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    LinearList linearList;
+    init(linearList);
+    workWithUser(linearList);
 }
 

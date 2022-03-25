@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClCompile Include="linearList.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="userInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="linearList.h" />
+    <ClInclude Include="userInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
