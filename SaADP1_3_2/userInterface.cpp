@@ -52,7 +52,7 @@ int userInput(int numberOfMenu)
 				check = true;
 			}
 		}
-		else if (check = false && numberOfMenu == SecondMenu)
+		else if (check == false && numberOfMenu == SecondMenu)
 		{
 			if (option < 1 || option > NumbOfOptionsMain)
 			{
@@ -115,12 +115,16 @@ void caseAddItem(int* list, int& numbOfItems)
 {
 	if (isEmpty(numbOfItems))
 	{
+		std::cout << "   Enter the item to add." << std::endl;
 		int data = userInput(EnterItem);
 		addItemIsEmpty(list, data, numbOfItems);
+		std::cout << std::endl;
+		std::cout << "   Item added." << std::endl;
+		std::cout << std::endl;
 	}
 	else if (!isFull(numbOfItems))
 	{
-		std::cout << "   Enter the element instead of/to the right of which you are going to add the element." << std::endl;
+		std::cout << "   Enter an element instead of or after which to insert a new one." << std::endl;
 		int currentData = userInput(EnterItem);
 		bool check = true;
 		int index = search(list, currentData, check);
@@ -152,7 +156,7 @@ void caseDeleteItem(int* list, int& numbOfItems)
 {
 	if (isEmpty(numbOfItems))
 	{
-		std::cout << "   Nothing to delete." << std::endl; //Это надо будет вставить в UserInterface
+		std::cout << "   Nothing to delete." << std::endl; 
 	}
 	std::cout << "   Enter the item to delete." << std::endl;
 	int currentData = userInput(EnterItem);
@@ -160,7 +164,7 @@ void caseDeleteItem(int* list, int& numbOfItems)
 	int index = search(list, currentData, check);
 	if (check)
 	{
-		int deletedItem = deleteItem(list, currentData, numbOfItems);
+		deleteItem(list, index, numbOfItems);
 		std::cout << std::endl;
 		std::cout << "   Item deleted." << std::endl;
 		std::cout << std::endl;

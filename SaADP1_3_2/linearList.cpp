@@ -14,11 +14,13 @@ bool isEmpty(int numbOfItems) { return numbOfItems == 0; }
 bool isFull(int numbOfItems) { return numbOfItems == ArraySize; }
 int search(int* list, int data, bool& check)
 {
-	for (int index = 0; index < ArraySize; index++)
+	int index = 0;
+	for (index; index < ArraySize; index++)
 	{
-		if (list[index] == data) { check = true; return index; }
+		if (list[index] == data) { check = true; break; }
 		else check = false;
 	}
+	return index;
 }
 
 void addItemIsEmpty(int* list, int data, int& numbOfItems)
@@ -54,39 +56,22 @@ void addItem(int* list, int data, int index, int beforeOrAfter, int& numbOfItems
 			break;
 	}
 }
-int deleteItem(int* list, int currentData, int& numbOfItems)
+void deleteItem(int* list, int index, int& numbOfItems)
 {
-	bool check = true;
-	int index = search(list, currentData, check);
-	if (check)
-	{
-		if (index == numbOfItems - 1) { list[index] = NULL; numbOfItems--; }
-		else
-		{
-			int deletedItem = list[index];
-			list[index] = NULL;
-			for (int i = index; i <= numbOfItems - 1; i++)
-			{
-				list[i + 1] = list[i];
-			}
-			numbOfItems--;
-			return deletedItem;
-		}
-	}
+	if (index == numbOfItems - 1) { list[index] = NULL; numbOfItems--; }
 	else
 	{
-		std::cout << "   There is no such element." << std::endl;
+		list[index] = NULL;
+		for (int i = index; i <= numbOfItems - 1; i++)
+		{
+			list[i] = list[i + 1];
+		}
+		numbOfItems--;
 	}
-	
 }
 void printList(int* list, int numbOfItems)
 {
-	/*for (int i = 0; i < numbOfItems; i++)
-	{
-		std::cout << "   " << list[i] << std::endl;
-	}
-	std::cout << std::endl;*/
-	for (int i = 0; i < ArraySize; i++)
+	for (int i = 0; i < numbOfItems; i++)
 	{
 		std::cout << "   " << list[i] << std::endl;
 	}

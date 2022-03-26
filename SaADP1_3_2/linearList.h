@@ -17,5 +17,5 @@ bool isFull(int numbOfItems);
 int search(int* list, int data, bool& check);
 void addItemIsEmpty(int* list, int data, int& numbOfItems);
 void addItem(int* list, int data, int index, int beforeOrAfter, int& numbOfItems);
-int deleteItem(int* list, int currentData, int& numbOfItems);
+void deleteItem(int* list, int index, int& numbOfItems);
 void printList(int* list, int numbOfItems);
