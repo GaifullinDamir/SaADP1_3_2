@@ -23,38 +23,31 @@ int search(int* list, int data, bool& check)
 	return index;
 }
 
+int findABigger(int* list, int data, int numbOfItems)
+{
+	int index = 0;
+	for (index; index < numbOfItems; index++)
+	{
+		if (data > list[numbOfItems - 1]) { index = numbOfItems; break; }
+		else if (data <= list[index]) { break; }
+	}
+	return index;
+}
+
 void addItemIsEmpty(int* list, int data, int& numbOfItems)
 {
 	list[0] = data;
 	numbOfItems++;
 }
-void addItem(int* list, int data, int index, int beforeOrAfter, int& numbOfItems)
+void addItem(int* list, int data, int& numbOfItems)
 {
-	switch (beforeOrAfter)
+	int index = findABigger(list, data, numbOfItems);
+	for (int i = numbOfItems - 1; i >= index; i--)
 	{
-		case(Before):
-		{
-			for (int i = numbOfItems - 1; i >= index; i--)
-			{
-				list[i + 1] = list[i];
-			}
-			list[index] = data;
-			numbOfItems++;
-			break;
-		}
-		case(After):
-		{
-			for (int i = numbOfItems - 1; i >= index + 1; i--)
-			{
-				list[i + 1] = list[i];
-			}
-			list[index + 1] = data;
-			numbOfItems++;
-			break;
-		}
-		default:
-			break;
+		list[i + 1] = list[i];
 	}
+	list[index] = data;
+	numbOfItems++;
 }
 void deleteItem(int* list, int index, int& numbOfItems)
 {

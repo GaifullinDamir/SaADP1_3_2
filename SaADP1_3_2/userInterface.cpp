@@ -124,25 +124,12 @@ void caseAddItem(int* list, int& numbOfItems)
 	}
 	else if (!isFull(numbOfItems))
 	{
-		std::cout << "   Enter an element instead of or after which to insert a new one." << std::endl;
-		int currentData = userInput(EnterItem);
-		bool check = true;
-		int index = search(list, currentData, check);
-		if (check)
-		{
-			printAdditionalMenu();
-			int beforeOrAfter = userInput(BeforeOrAfterInput);
-			std::cout << "   Enter the item to add." << std::endl;
-			int data = userInput(EnterItem);
-			addItem(list, data, index, beforeOrAfter, numbOfItems);
-			std::cout << std::endl;
-			std::cout << "   Item added." << std::endl;
-			std::cout << std::endl;
-		}
-		else
-		{
-			std::cout << "   There is no such element." << std::endl;
-		}
+		std::cout << "   Enter the item to add." << std::endl;
+		int data = userInput(EnterItem);
+		addItem(list, data, numbOfItems);
+		std::cout << std::endl;
+		std::cout << "   Item added." << std::endl;
+		std::cout << std::endl;
 	}
 	else if (isFull(numbOfItems))
 	{
