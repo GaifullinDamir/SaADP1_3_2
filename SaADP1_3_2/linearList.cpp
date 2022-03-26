@@ -9,7 +9,6 @@ void init(LinearList& linearList)
 	}
 	linearList.numbOfItems = 0;
 }
-
 bool isEmpty(int numbOfItems) { return numbOfItems == 0; }
 bool isFull(int numbOfItems) { return numbOfItems == ArraySize; }
 int search(int* list, int data, bool& check)
@@ -22,7 +21,6 @@ int search(int* list, int data, bool& check)
 	}
 	return index;
 }
-
 int findABigger(int* list, int data, int numbOfItems)
 {
 	int index = 0;
@@ -33,7 +31,6 @@ int findABigger(int* list, int data, int numbOfItems)
 	}
 	return index;
 }
-
 void addItemIsEmpty(int* list, int data, int& numbOfItems)
 {
 	list[0] = data;

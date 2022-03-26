@@ -11,7 +11,6 @@ void printMainMenu()
 	std::cout << "3. Display list on screen." << std::endl;
 	std::cout << std::endl;
 }
-
 void printAdditionalMenu()
 {
 	std::cout << std::endl;
@@ -19,13 +18,11 @@ void printAdditionalMenu()
 	std::cout << "2. Insert element after specified." << std::endl;
 	std::cout << std::endl;
 }
-
 int userInput(int numberOfMenu)
 {
 	int option = 0;
 	bool check = true;
 	std::string optionInput;
-
 	while (check)
 	{
 		try
@@ -35,14 +32,12 @@ int userInput(int numberOfMenu)
 			option = std::stoi(optionInput);
 			check = false;
 		}
-
 		catch (const std::exception&)
 		{
 			std::cout << "   Please enter a number!" << std::endl;
 			std::cout << std::endl;
 			check = true;
 		}
-
 		if (check == false && numberOfMenu == MainMenu)
 		{
 			if (option < 1 || option > NumbOfOptionsMain)
@@ -110,7 +105,6 @@ void workWithUser(LinearList& linearList)
 		work = workOrExit();
 	}
 }
-
 void caseAddItem(int* list, int& numbOfItems)
 {
 	if (isEmpty(numbOfItems))
@@ -138,7 +132,6 @@ void caseAddItem(int* list, int& numbOfItems)
 		std::cout << std::endl;
 	}
 }
-
 void caseDeleteItem(int* list, int& numbOfItems)
 {
 	if (isEmpty(numbOfItems))
@@ -161,7 +154,6 @@ void caseDeleteItem(int* list, int& numbOfItems)
 		std::cout << "   There is no such element." << std::endl;
 	}
 }
-
 bool workOrExit()
 {
 	std::cout << "   Continue (1) / exit (2)" << std::endl;

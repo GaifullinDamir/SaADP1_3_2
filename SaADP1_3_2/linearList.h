@@ -10,7 +10,6 @@ struct LinearList
 	int list[ArraySize];
 	int numbOfItems;
 };
-
 void init(LinearList& linearList);
 bool isEmpty(int numbOfItems);
 bool isFull(int numbOfItems);
