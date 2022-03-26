@@ -8,4 +8,3 @@ int main()
     init(linearList);
     workWithUser(linearList);
 }
-

@@ -13,6 +13,7 @@ struct LinearList
 void init(LinearList& linearList);
 bool isEmpty(int numbOfItems);
 bool isFull(int numbOfItems);
+int findABigger(int* list, int data, int numbOfItems);
 int search(int* list, int data, bool& check);
 void addItemIsEmpty(int* list, int data, int& numbOfItems);
 void addItem(int* list, int data, int& numbOfItems);
